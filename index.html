@@ -4,8 +4,8 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="color-scheme" content="dark">
-  <meta name="description" content="Chess Trainer — учебный MVP для игроков 1600–2400: анализ партий с Lichess, Stockfish, план недели и конкретный обратный фидбек.">
-  <title>Chess Trainer — университетский пилот</title>
+  <meta name="description" content="Chess Trainer — закрытый MVP для игроков 1600–2400: анализ партий с Lichess, Stockfish, план недели и конкретный обратный фидбек.">
+  <title>Chess Trainer — продукт и закрытый пилот</title>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -16,7 +16,7 @@
       <span class="brand-mark">♞</span>
       <span>
         <strong>Chess Trainer</strong>
-        <small>университетский пилот</small>
+        <small>закрытый пилот</small>
       </span>
     </a>
     <div class="top-actions">
@@ -44,7 +44,7 @@
 
     <section class="slide hero" id="overview">
       <div class="hero-copy">
-        <p class="eyebrow">Заявка на учебный MVP · 10–20 студентов</p>
+        <p class="eyebrow">Закрытый пилот · 10–20 игроков</p>
         <h1>Шахматный тренер,<br><span>который показывает, что исправить.</span></h1>
         <p class="lead">Chess Trainer разбирает реальные партии игрока, находит конкретные ошибки и превращает их в план на следующую неделю.</p>
         <div class="badge-row" aria-label="Факты о проекте">
@@ -107,7 +107,7 @@
           </div>
           <ul class="check-list">
             <li>Игроки с аккаунтом Lichess и уже сыгранными партиями</li>
-            <li>Студенты, которые хотят понятный план вместо хаотичной практики</li>
+            <li>Клубные игроки, которым нужен понятный план вместо хаотичной практики</li>
             <li>Клубные игроки, тренирующие конкретные ошибки</li>
             <li>Те, кто готов выполнять короткие задания между занятиями</li>
           </ul>
@@ -143,7 +143,7 @@
             <p>Endgame trainer и Reading trainer по «Моей системе» закрепляют идею после анализа.</p>
           </article>
         </div>
-        <p class="legal-note">Reading trainer использует оригинальный учебный текст и собственные позиции, а не переписанную современную редакцию книги.</p>
+        <p class="legal-note">Reading trainer использует оригинальный текст курса и собственные позиции, а не переписанную современную редакцию книги.</p>
       </div>
     </section>
 
@@ -169,7 +169,7 @@
             <div class="stack-item"><b>Получить задачу</b><span>короткий срез на именно найденный паттерн</span></div>
           </div>
         </div>
-        <p class="legal-note">Все карточки в этой версии — схематичные представления интерфейса, не скриншоты и не выдуманная аналитика конкретного студента.</p>
+        <p class="legal-note">Все карточки в этой версии — схематичные представления интерфейса, не скриншоты и не выдуманная аналитика конкретного игрока.</p>
       </div>
     </section>
 
@@ -236,7 +236,7 @@
             <ul>
               <li>Публичный сервер и SLA</li>
               <li>Rate limit перед открытым доступом</li>
-              <li>Измеренные результаты студентов</li>
+              <li>Измеренные результаты игроков</li>
               <li>Постоянные бэкапы production-базы</li>
             </ul>
           </div>
@@ -259,14 +259,14 @@
           <div><strong>применимо</strong><span>до следующей партии сделано конкретное задание</span></div>
           <div><strong>полезно</strong><span>участник связывает совет с реальной позицией</span></div>
         </div>
-        <p class="legal-note">Цифры и кейсы студентов не выдумываем: до пилота их просто ещё не существует.</p>
+        <p class="legal-note">Цифры и кейсы игроков не выдумываем: до пилота их просто ещё не существует.</p>
       </div>
     </section>
 
     <section class="slide requirements" id="requirements">
       <div class="section-index">09</div>
       <div class="content">
-        <p class="eyebrow">Что нужно от университета</p>
+        <p class="eyebrow">Что нужно для запуска</p>
         <h2>Не кластер.<br><span>Одна постоянная x86 VM.</span></h2>
         <div class="request-layout">
           <div class="request-table" role="table">
@@ -307,11 +307,11 @@
       <div class="section-index">11</div>
       <div class="content">
         <p class="eyebrow">План внедрения</p>
-        <h2>Четыре шага до учебного результата.</h2>
+        <h2>Четыре шага до закрытого запуска.</h2>
         <ol class="roadmap">
           <li><b>Деплой</b><span>Docker + Caddy/Nginx, HTTPS, <code>data/</code> на постоянном диске, backup.</span></li>
           <li><b>Безопасность</b><span>rate limit на анализ/логин, один heavy job, проверка доступа к данным.</span></li>
-          <li><b>Пилот</b><span>10–20 студентов, импорт Lichess-партий, персональные планы и задания.</span></li>
+          <li><b>Пилот</b><span>10–20 игроков, импорт Lichess-партий, персональные планы и задания.</span></li>
           <li><b>Обратная связь</b><span>опрос, интервью, что исправлять: вход, скорость, глубина, понятность.</span></li>
         </ol>
       </div>
@@ -321,16 +321,16 @@
       <div class="section-index">12</div>
       <div class="content">
         <p class="eyebrow">Ask</p>
-        <h2>Просим учебную среду,<br><span>не масштабный запуск.</span></h2>
+        <h2>Просим закрытую среду,<br><span>не масштабный запуск.</span></h2>
         <div class="ask-grid">
           <article><strong>VM</strong><span>4 vCPU / 8 GB / 80 GB SSD, Linux x86_64</span></article>
           <article><strong>Access</strong><span>root/Docker, открытые 80/443, постоянный IP</span></article>
-          <article><strong>Pilot</strong><span>10–20 студентов, 2–3 недели, Lichess</span></article>
+          <article><strong>Pilot</strong><span>10–20 игроков, 2–3 недели, Lichess</span></article>
           <article><strong>Support</strong><span>backup, HTTPS, одна учётка/модель с лимитами</span></article>
         </div>
         <div class="ask-conclusion">
           <h3>Решение, которое просим</h3>
-          <p>Разрешить учебный пилот и предоставить VM для ограниченного web-MVP. После 2–3 недель — разбор результатов и решение, нужен ли следующий этап.</p>
+          <p>Разрешить закрытый пилот и предоставить VM для ограниченного web-MVP. После 2–3 недель — разбор результатов и решение, нужен ли следующий этап.</p>
           <a class="button button-primary" href="#overview">Вернуться к началу ↑</a>
         </div>
       </div>

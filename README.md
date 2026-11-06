@@ -1,6 +1,6 @@
-# Chess Trainer — University Pilot Deck
+# Chess Trainer — Product Deck
 
-A static, dependency-free presentation for a university or IT-committee pitch.
+A static, dependency-free presentation for a closed MVP pilot.
 It is designed to host as a GitHub Pages project site.
 
 ## Local preview
@@ -24,7 +24,7 @@ Open <http://localhost:8080/>.
 - Current product is a local MVP.
 - 1032 tests passed at the time of writing.
 - The public pilot has not launched yet.
-- No student outcomes, ratings or business metrics are fabricated.
+- No player outcomes, ratings or business metrics are fabricated.
 - Stockfish decides chess correctness; the LLM only writes explanations.
 - The included screenshots are the real local app, not mockups or invented analytics. They intentionally show the current `tleukhanov` profile and its visible stats. Replace them with anonymized captures for a public pilot landing page.
 
