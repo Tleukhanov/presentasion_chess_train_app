@@ -26,7 +26,8 @@ Open <http://localhost:8080/>.
 - The public pilot has not launched yet.
 - No player outcomes, ratings or business metrics are fabricated.
 - Stockfish decides chess correctness; the LLM only writes explanations.
-- The included screenshots are the real local app, not mockups or invented analytics. They intentionally show the current `tleukhanov` profile and its visible stats. Replace them with anonymized captures for a public pilot landing page.
+- Product screenshots are real local app captures, not mockups or invented analytics; they intentionally show the current `tleukhanov` profile and visible stats. Replace them with anonymized captures for a wider public campaign.
+- The founder slide shows Yeraly Tleukhanov and current communities. Community screenshots are cropped to headers/standings; personal chat text from other members is not included. Public counters can change over time.
 
 ## Speaker notes
 
