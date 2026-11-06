@@ -1,0 +1,342 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="dark">
+  <meta name="description" content="Chess Trainer — учебный MVP для игроков 1600–2400: анализ партий с Lichess, Stockfish, план недели и конкретный обратный фидбек.">
+  <title>Chess Trainer — университетский пилот</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#problem">К содержанию</a>
+
+  <header class="topbar">
+    <a class="brand" href="#top" aria-label="Chess Trainer">
+      <span class="brand-mark">♞</span>
+      <span>
+        <strong>Chess Trainer</strong>
+        <small>университетский пилот</small>
+      </span>
+    </a>
+    <div class="top-actions">
+      <span class="status-dot" aria-hidden="true"></span>
+      MVP · v0.9.19
+    </div>
+  </header>
+
+  <nav class="deck-nav" aria-label="Разделы презентации">
+    <a href="#problem"><span>01</span>Проблема</a>
+    <a href="#audience"><span>02</span>Аудитория</a>
+    <a href="#product"><span>03</span>Что делает</a>
+    <a href="#answer"><span>04</span>Формат ответа</a>
+    <a href="#screens"><span>05</span>Реальные экраны</a>
+    <a href="#principle"><span>06</span>Принцип</a>
+    <a href="#status"><span>07</span>Статус</a>
+    <a href="#pilot"><span>08</span>Пилот</a>
+    <a href="#requirements"><span>09</span>Что нужно</a>
+    <a href="#risks"><span>10</span>Риски</a>
+    <a href="#roadmap"><span>11</span>План</a>
+    <a href="#ask"><span>12</span>Ask</a>
+  </nav>
+
+  <main id="top" class="deck">
+
+    <section class="slide hero" id="overview">
+      <div class="hero-copy">
+        <p class="eyebrow">Заявка на учебный MVP · 10–20 студентов</p>
+        <h1>Шахматный тренер,<br><span>который показывает, что исправить.</span></h1>
+        <p class="lead">Chess Trainer разбирает реальные партии игрока, находит конкретные ошибки и превращает их в план на следующую неделю.</p>
+        <div class="badge-row" aria-label="Факты о проекте">
+          <span class="badge">1600–2400</span>
+          <span class="badge">Stockfish</span>
+          <span class="badge">1032 tests passed</span>
+          <span class="badge">local MVP</span>
+        </div>
+        <a class="button button-primary" href="#problem">Показать проблему ↓</a>
+      </div>
+
+      <div class="hero-board" aria-label="Схема работы продукта">
+        <div class="board-frame">
+          <div class="board-grid" aria-hidden="true"></div>
+          <div class="flow-line">
+            <div class="flow-node"><b>Lichess</b><small>партии игрока</small></div>
+            <div class="flow-arrow">→</div>
+            <div class="flow-node flow-node-accent"><b>Stockfish</b><small>проверка ходов</small></div>
+            <div class="flow-arrow">→</div>
+            <div class="flow-node"><b>План</b><small>на неделю</small></div>
+          </div>
+          <div class="mini-panel panel-a"><small>игровая ошибка</small><b>ход · цена · причина</b></div>
+          <div class="mini-panel panel-b"><small>ответ игрока</small><b>правило на следующую партию</b></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide problem" id="problem">
+      <div class="section-index">01</div>
+      <div class="content">
+        <p class="eyebrow">Проблема</p>
+        <h2>Игрок видит проигрыш.<br><span>Но не понимает, что именно исправлять.</span></h2>
+        <div class="problem-grid">
+          <article>
+            <h3>Советы слишком общие</h3>
+            <p>«Играй лучше» и «считай варианты» не объясняют, где конкретно была ошибка и почему она стоила позиции.</p>
+          </article>
+          <article>
+            <h3>Анализ не превращается в урок</h3>
+            <p>Партия разобрана, но на следующей неделе игрок снова повторяет тот же паттерн.</p>
+          </article>
+          <article>
+            <h3>Тренер не всегда доступен</h3>
+            <p>Нужен быстрый и понятный второй взгляд между занятиями, а не только после проигранной партии.</p>
+          </article>
+        </div>
+        <p class="closing-line">Нужен не ещё один «рейтинговый анализ», а персональная причина ошибки и следующий тренированный шаг.</p>
+      </div>
+    </section>
+
+    <section class="slide audience" id="audience">
+      <div class="section-index">02</div>
+      <div class="content">
+        <p class="eyebrow">Аудитория</p>
+        <h2>Не для новичков.<br><span>Не для элитного гроссмейстерского отбора.</span></h2>
+        <div class="audience-layout">
+          <div class="quote-card">
+            <strong>1600–2400</strong>
+            <p>Игрокам уже нужен осознанный тренинг: они понимают дебют и правила, но регулярно теряют фокус, время и план в сложной позиции.</p>
+          </div>
+          <ul class="check-list">
+            <li>Игроки с аккаунтом Lichess и уже сыгранными партиями</li>
+            <li>Студенты, которые хотят понятный план вместо хаотичной практики</li>
+            <li>Клубные игроки, тренирующие конкретные ошибки</li>
+            <li>Те, кто готов выполнять короткие задания между занятиями</li>
+          </ul>
+        </div>
+        <div class="not-fit"><b>Не обещаем:</b> замену живому тренеру, гарантированный рост рейтинга и «магические» ответы нейросети.</div>
+      </div>
+    </section>
+
+    <section class="slide product" id="product">
+      <div class="section-index">03</div>
+      <div class="content">
+        <p class="eyebrow">Продукт</p>
+        <h2>Один цикл: партия → ошибка → причина → тренировка.</h2>
+        <div class="feature-grid">
+          <article>
+            <span class="feature-num">A</span>
+            <h3>Импорт партий</h3>
+            <p>Подтягиваем реальные игры с Lichess и сохраняем их для последующего анализа.</p>
+          </article>
+          <article>
+            <span class="feature-num">B</span>
+            <h3>Stockfish анализ</h3>
+            <p>Находим критические ходы, считаем потерю win%, выделяем дебют, миттельшпиль и эндшпиль.</p>
+          </article>
+          <article>
+            <span class="feature-num">C</span>
+            <h3>План недели</h3>
+            <p>Собираем повторяющиеся ошибки и превращаем их в конкретные фокусы и упражнения.</p>
+          </article>
+          <article>
+            <span class="feature-num">D</span>
+            <h3>Тренажёры</h3>
+            <p>Endgame trainer и Reading trainer по «Моей системе» закрепляют идею после анализа.</p>
+          </article>
+        </div>
+        <p class="legal-note">Reading trainer использует оригинальный учебный текст и собственные позиции, а не переписанную современную редакцию книги.</p>
+      </div>
+    </section>
+
+    <section class="slide answer" id="answer">
+      <div class="section-index">04</div>
+      <div class="content">
+        <p class="eyebrow">Формат ответа</p>
+        <h2>Не «плохой ход».<br><span>А цепочка, которую можно повторить.</span></h2>
+        <div class="answer-layout">
+          <div class="answer-card">
+            <div class="card-head"><span class="dot"></span> Разбор ошибки <span class="card-status">пример формата</span></div>
+            <dl>
+              <div><dt>Фаза</dt><dd>где ошибка возникла: дебют, миттельшпиль или эндшпиль</dd></div>
+              <div><dt>Ход</dt><dd>что было сыграно и какая альтернатива была сильнее</dd></div>
+              <div><dt>Цена</dt><dd>насколько упала вероятность выигрыша</dd></div>
+              <div><dt>Паттерн</dt><dd>к чему это относится: время, центр, слабая ладья, конь или пешка</dd></div>
+              <div><dt>Действие</dt><dd>какое упражнение сделать до следующей партии</dd></div>
+            </dl>
+          </div>
+          <div class="answer-stack">
+            <div class="stack-item"><b>Открыть партию</b><span>с нужного полухода, а не смотреть весь pgn заново</span></div>
+            <div class="stack-item"><b>Увидеть позицию</b><span>без сохранения «вроде нормально» как правильного хода</span></div>
+            <div class="stack-item"><b>Получить задачу</b><span>короткий срез на именно найденный паттерн</span></div>
+          </div>
+        </div>
+        <p class="legal-note">Все карточки в этой версии — схематичные представления интерфейса, не скриншоты и не выдуманная аналитика конкретного студента.</p>
+      </div>
+    </section>
+
+    <section class="slide screens" id="screens">
+      <div class="section-index">05</div>
+      <div class="content content-wide">
+        <p class="eyebrow">Реальные экраны</p>
+        <h2>Не макет.<br><span>Рабочий локальный MVP.</span></h2>
+        <div class="screen-grid">
+          <figure class="screen-card screen-dashboard"><img src="assets/screenshots/dashboard.png" alt="Дашборд Chess Trainer с планом дня, слабыми дебютами и статистикой партий"><figcaption><b>Дашборд</b><span>текущие слабые дебюты, мотивы ошибок и тренд по партиям</span></figcaption></figure>
+          <figure class="screen-card"><img src="assets/screenshots/plan.png" alt="План тренировки Chess Trainer с конкретными задачами на неделю"><figcaption><b>План недели</b><span>первая цель: эндшпиль, 86 ошибок, средняя потеря 21.5%</span></figcaption></figure>
+          <figure class="screen-card"><img src="assets/screenshots/endgame.png" alt="Тренер эндшпиля Chess Trainer с позициями из шахматной теории"><figcaption><b>Эндшпиль</b><span>master-позиции и отдельные задачи из собственных партий</span></figcaption></figure>
+          <figure class="screen-card"><img src="assets/screenshots/reading.png" alt="Reading trainer по Моей системе Нимцовича"><figcaption><b>«Моя система»</b><span>оригинальный текст и позиции; решение раскрывается после ответа</span></figcaption></figure>
+        </div>
+        <p class="legal-note">Снимки сделаны локально в текущем аккаунте; персональная цель и статистика видны намеренно. Репозиторий с этой презентацией публичен, поэтому при открытии внешнего пилота скриншоты нужно заменить на анонимизированные версии.</p>
+      </div>
+    </section>
+
+    <section class="slide principle" id="principle">
+      <div class="section-index">06</div>
+      <div class="content">
+        <p class="eyebrow">Ключевой принцип</p>
+        <h2>Шахматами управляет движок.<br><span>Нейросеть пишет слова.</span></h2>
+        <div class="principle-grid">
+          <article class="principle-good">
+            <p class="principle-label">Система решает</p>
+            <h3>Legally and strategically</h3>
+            <p>Юридическая шахматная верность хода, оценка позиции, варианты и допустимые ответы проверяются Stockfish и правилами.</p>
+          </article>
+          <article class="principle-bad">
+            <p class="principle-label">Система не решает</p>
+            <h3>Красивый текст без проверки</h3>
+            <p>LLM не получает право объявлять ход «правильным», придумывать тактику или заменять расчёт убедительной формулировкой.</p>
+          </article>
+        </div>
+        <div class="pipeline" aria-label="Конвейер решения и объяснения">
+          <span>позиция</span><i>→</i><span>Stockfish</span><i>→</i><span>проверенный ответ</span><i>→</i><span>LLM объясняет</span><i>→</i><span>игрок тренирует</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide status" id="status">
+      <div class="section-index">07</div>
+      <div class="content">
+        <p class="eyebrow">Что уже есть</p>
+        <h2>MVP собран.<br><span>Публичного запуска пока нет.</span></h2>
+        <div class="status-grid">
+          <article><strong>1032</strong><span>теста проходят</span></article>
+          <article><strong>0.9.19</strong><span>текущая версия</span></article>
+          <article><strong>1</strong><span>общий доступ не открыт</span></article>
+        </div>
+        <div class="status-columns">
+          <div>
+            <h3>Есть</h3>
+            <ul>
+              <li>Анализ домашних и Lichess-партий</li>
+              <li>Cookie-auth и закрытые пользовательские данные</li>
+              <li>План недели с доказательствами из игр</li>
+              <li>Endgame trainer и Reading trainer</li>
+            </ul>
+          </div>
+          <div>
+            <h3>Нет / нужно</h3>
+            <ul>
+              <li>Публичный сервер и SLA</li>
+              <li>Rate limit перед открытым доступом</li>
+              <li>Измеренные результаты студентов</li>
+              <li>Постоянные бэкапы production-базы</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide pilot" id="pilot">
+      <div class="section-index">08</div>
+      <div class="content">
+        <p class="eyebrow">Пилот</p>
+        <h2>Маленькая группа.<br><span>Измеряемые выводы.</span></h2>
+        <ol class="pilot-steps">
+          <li><b>Неделя 1</b><span>регистрация, импорт партий, первичные отчёты</span></li>
+          <li><b>Неделя 2</b><span>персональные планы, endgame и reading задания</span></li>
+          <li><b>Неделя 3</b><span>повторная сессия, опрос, разбор полезности</span></li>
+        </ol>
+        <div class="metric-strip">
+          <div><strong>понятно</strong><span>игрок называет свою главную повторяющуюся ошибку</span></div>
+          <div><strong>применимо</strong><span>до следующей партии сделано конкретное задание</span></div>
+          <div><strong>полезно</strong><span>участник связывает совет с реальной позицией</span></div>
+        </div>
+        <p class="legal-note">Цифры и кейсы студентов не выдумываем: до пилота их просто ещё не существует.</p>
+      </div>
+    </section>
+
+    <section class="slide requirements" id="requirements">
+      <div class="section-index">09</div>
+      <div class="content">
+        <p class="eyebrow">Что нужно от университета</p>
+        <h2>Не кластер.<br><span>Одна постоянная x86 VM.</span></h2>
+        <div class="request-layout">
+          <div class="request-table" role="table">
+            <div role="row" class="table-head"><div role="columnheader">Компонент</div><div role="columnheader">Просим</div></div>
+            <div role="row"><div>CPU</div><div>4 vCPU</div></div>
+            <div role="row"><div>RAM</div><div>8 GB</div></div>
+            <div role="row"><div>Disk</div><div>80 GB SSD + постоянный <code>data/</code></div></div>
+            <div role="row"><div>Arch</div><div>Linux x86_64</div></div>
+            <div role="row"><div>Access</div><div>root/Docker, публичный IP, HTTPS</div></div>
+            <div role="row"><div>Backup</div><div>daily backup SQLite и <code>data/</code></div></div>
+          </div>
+          <aside class="request-note">
+            <p class="principle-label">Если ресурсов меньше</p>
+            <p>2 vCPU / 4 GB / 40 GB хватит для 10–15 участников только при одном тяжёлом Stockfish-задании за раз; остальные ждут в очереди.</p>
+            <p class="principle-label">Если все 20 одновременно анализируют</p>
+            <p>Нужны 4–8 vCPU / 8–16 GB либо строгая очередь и быстрый профиль анализа. GPU не требуется.</p>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide risks" id="risks">
+      <div class="section-index">10</div>
+      <div class="content">
+        <p class="eyebrow">Риски и честные ограничения</p>
+        <h2>Лучше скромный честный пилот,<br><span>чем большой красивый отказ.</span></h2>
+        <div class="risk-grid">
+          <article><b>Нагрузка</b><span>Stockfish тяжёлый: нужен лимит на тяжёлые задачи и очередь.</span></article>
+          <article><b>Приватность</b><span>Lichess API token только в env, не в git; доступ к чужим данным закрыт.</span></article>
+          <article><b>LLM</b><span>Платно и может ошибаться в словах; не решает корректность ходов.</span></article>
+          <article><b>Контент</b><span>Используем оригинальные позиции и текст; сторонние источники не копируем.</span></article>
+        </div>
+        <p class="closing-line">Перед открытием: rate limit, один heavy job, backup, доступ только по ролям.</p>
+      </div>
+    </section>
+
+    <section class="slide roadmap" id="roadmap">
+      <div class="section-index">11</div>
+      <div class="content">
+        <p class="eyebrow">План внедрения</p>
+        <h2>Четыре шага до учебного результата.</h2>
+        <ol class="roadmap">
+          <li><b>Деплой</b><span>Docker + Caddy/Nginx, HTTPS, <code>data/</code> на постоянном диске, backup.</span></li>
+          <li><b>Безопасность</b><span>rate limit на анализ/логин, один heavy job, проверка доступа к данным.</span></li>
+          <li><b>Пилот</b><span>10–20 студентов, импорт Lichess-партий, персональные планы и задания.</span></li>
+          <li><b>Обратная связь</b><span>опрос, интервью, что исправлять: вход, скорость, глубина, понятность.</span></li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="slide ask" id="ask">
+      <div class="section-index">12</div>
+      <div class="content">
+        <p class="eyebrow">Ask</p>
+        <h2>Просим учебную среду,<br><span>не масштабный запуск.</span></h2>
+        <div class="ask-grid">
+          <article><strong>VM</strong><span>4 vCPU / 8 GB / 80 GB SSD, Linux x86_64</span></article>
+          <article><strong>Access</strong><span>root/Docker, открытые 80/443, постоянный IP</span></article>
+          <article><strong>Pilot</strong><span>10–20 студентов, 2–3 недели, Lichess</span></article>
+          <article><strong>Support</strong><span>backup, HTTPS, одна учётка/модель с лимитами</span></article>
+        </div>
+        <div class="ask-conclusion">
+          <h3>Решение, которое просим</h3>
+          <p>Разрешить учебный пилот и предоставить VM для ограниченного web-MVP. После 2–3 недель — разбор результатов и решение, нужен ли следующий этап.</p>
+          <a class="button button-primary" href="#overview">Вернуться к началу ↑</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="script.js" defer></script>
+</body>
+</html>
