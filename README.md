@@ -36,3 +36,8 @@ See `SPEAKER_NOTES.md` for a 5–7 minute talk track and a short live-demo flow.
 ## Honest limits
 
 The screenshots are real local captures. For a wider public campaign, swap them for privacy-preserving captures from the pilot deployment.
+
+---
+
+**Build. Learn. Understand.**
+© Ералы Тлеуханов · [tleukhanov.me](https://tleukhanov.me)
